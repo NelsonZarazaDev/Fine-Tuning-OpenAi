@@ -8,5 +8,7 @@ router
 .post("/upload-file", apiController.UploadFile)
 .get("/list-files", apiController.ListFiles)
 .get("/retrieve-file", apiController.RetrieveFile)
+.get("/get-message", apiController.GetMessage)
+
 
 module.exports = router;

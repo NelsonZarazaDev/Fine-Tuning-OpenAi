@@ -1,9 +1,7 @@
 var xlsx = require("xlsx");
 const fs = require("fs");
 const { Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
-  apiKey: "api key",
-});
+const configuration = new Configuration({apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"});
 const openai = new OpenAIApi(configuration);
 
 async function TransformData() {
@@ -54,5 +52,5 @@ module.exports = {
   TransformData,
   UploadFile,
   ListFiles,
-  RetrieveFile
+  RetrieveFile,
 };

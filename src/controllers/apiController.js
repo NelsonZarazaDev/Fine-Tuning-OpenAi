@@ -1,4 +1,6 @@
 const fileService = require("../services/file/fileService");
+const openaiService = require("../services/file/openAIService");
+
 
 async function Test(req, res) {
   res.send("Test ok");
@@ -9,6 +11,7 @@ async function TransformData(req, res) {
   res.send();
 }
 
+//#region File
 async function UploadFile(req, res) {
   const response = await fileService.UploadFile();
   res.status(response.status).send(response.data);
@@ -28,11 +31,19 @@ async function RetrieveFile(req, res) {
     res.status(response.status).send(response.data);
   }
 }
+//#endregion
+
+async function GetMessage (req, res){
+  var message = req.query["message"];
+  const response = await openaiService.GetMessage(message);
+  res.send(response);
+}
 
 module.exports = {
   Test,
   TransformData,
   UploadFile,
   ListFiles,
-  RetrieveFile
-};
+  RetrieveFile,
+  GetMessage
+}
